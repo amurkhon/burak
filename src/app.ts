@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import  router from './router';
 
 /* ENTRANCE */
 
@@ -18,5 +19,7 @@ app.set('view engine', 'ejs');
 
 
 /* ROUTERS */
+
+app.use('/', router);
 
 export default app;
