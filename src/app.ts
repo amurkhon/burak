@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import  router from './router';
+import routerAdmin from './routerAdmin';
 
 /* ENTRANCE */
 
@@ -20,6 +21,7 @@ app.set('view engine', 'ejs');
 
 /* ROUTERS */
 
-app.use('/', router);
+app.use('/admin', routerAdmin); // EJS
+app.use('/', router);  //REACT
 
 export default app;
