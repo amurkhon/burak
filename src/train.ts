@@ -26,18 +26,35 @@ import { count } from "console";
 
 // I-TASK
 
-function majorityElement(array: number[]) {
-    let max = 0;
-    let number;
-    for( let i=1; i<=9; i++) {
-       let count = array.filter(x => x==i).length;
-       if( count > max){
-        max = count;
-        number = i;
-       }
-    }
-    return number;
-}
+// function majorityElement(array: number[]) {
+//     let max = 0;
+//     let number;
+//     for( let i=1; i<=9; i++) {
+//        let count = array.filter(x => x==i).length;
+//        if( count > max){
+//         max = count;
+//         number = i;
+//        }
+//     }
+//     return number;
+// }
 
-const result = majorityElement([1,2,2,2,3,3,3,3]);
-console.log(result);
+// const result = majorityElement([1,2,2,2,3,3,3,3]);
+// console.log(result);
+
+// J-TASK
+
+function findLongestWord(text: String) {
+    let longestWord;
+    const words_list = text.split(" ");
+    const new_list = words_list.map((value: String) => {
+        return value.length;
+    });
+    for( let value of words_list) {
+        if(value.length == Math.max.apply(null, new_list)) {
+            longestWord = value;
+        }
+    }
+    return longestWord;
+}
+console.log(findLongestWord('I am from Uzbekistan'))
