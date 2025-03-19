@@ -26,7 +26,6 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 restaurantController.processLogin = async (req: Request, res: Response) => {
     try {
         console.log('processLogin');
-        console.log("body: ", req.body);
         const input: LoginInput = req.body;
 
         const memberService = new MemberSerivice();
@@ -51,7 +50,6 @@ restaurantController.getSignup = (req: Request, res: Response) => {
 restaurantController.processSignup = async (req: Request, res: Response) => {
     try {
         console.log('processSignup');
-        console.log("body", req.body);
 
         const newMember: MemberInput = req.body;
         newMember.memberType = MemberType.RESTAURANT;
