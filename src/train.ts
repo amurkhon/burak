@@ -44,17 +44,32 @@ import { count } from "console";
 
 // J-TASK
 
-function findLongestWord(text: String) {
-    let longestWord;
-    const words_list = text.split(" ");
-    const new_list = words_list.map((value: String) => {
-        return value.length;
-    });
-    for( let value of words_list) {
-        if(value.length == Math.max.apply(null, new_list)) {
-            longestWord = value;
+// function findLongestWord(text: String) {
+//     let longestWord;
+//     const words_list = text.split(" ");
+//     const new_list = words_list.map((value: String) => {
+//         return value.length;
+//     });
+//     for( let value of words_list) {
+//         if(value.length == Math.max.apply(null, new_list)) {
+//             longestWord = value;
+//         }
+//     }
+//     return longestWord;
+// }
+// console.log(findLongestWord('I am from Uzbekistan'))
+
+// H2-TASK
+
+function getDigits(string: String) {
+    const list = string.split('');
+    let digits = '';
+    for(let item of list) {
+        if(!Number.isNaN(Number(item))) {
+            digits += item;
         }
     }
-    return longestWord;
+    return digits;
 }
-console.log(findLongestWord('I am from Uzbekistan'))
+const result = getDigits('ab123b9d34');
+console.log(result);
