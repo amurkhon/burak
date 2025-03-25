@@ -83,6 +83,7 @@ class MemberService {
             {memberNick: true, memberPassword: true}
         )
         .exec();
+        console.log("member: ", member);
         if(!member) {
             throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
         }
@@ -95,6 +96,7 @@ class MemberService {
         if(!isMatch) {
             throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
         }
+        console.log('result: ',this.memberModel.findById(member._id));
 
         return await this.memberModel.findById(member._id).exec();
 

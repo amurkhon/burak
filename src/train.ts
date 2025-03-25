@@ -61,15 +61,31 @@ import { count } from "console";
 
 // H2-TASK
 
-function getDigits(string: String) {
-    const list = string.split('');
-    let digits = '';
-    for(let item of list) {
-        if(!Number.isNaN(Number(item))) {
-            digits += item;
-        }
+// function getDigits(string: String) {
+//     const list = string.split('');
+//     let digits = '';
+//     for(let item of list) {
+//         if(!Number.isNaN(Number(item))) {
+//             digits += item;
+//         }
+//     }
+//     return digits;
+// }
+// const result = getDigits('ab123b9d34');
+// console.log(result);
+
+// K-TASK
+
+function countVowels(word: string) {
+    let count = 0;
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const list = word.split('');
+    for (let letter of list) {
+        if(vowels.includes(letter.toLowerCase()))
+            count += 1;
     }
-    return digits;
+    return count;
 }
-const result = getDigits('ab123b9d34');
-console.log(result);
+
+const result = countVowels("string");
+console.log("count of vowels: ", result);
