@@ -76,16 +76,28 @@ import { count } from "console";
 
 // K-TASK
 
-function countVowels(word: string) {
-    let count = 0;
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    const list = word.split('');
-    for (let letter of list) {
-        if(vowels.includes(letter.toLowerCase()))
-            count += 1;
-    }
-    return count;
-}
+// function countVowels(word: string) {
+//     let count = 0;
+//     const vowels = ['a', 'e', 'i', 'o', 'u'];
+//     const list = word.split('');
+//     for (let letter of list) {
+//         if(vowels.includes(letter.toLowerCase()))
+//             count += 1;
+//     }
+//     return count;
+// }
 
-const result = countVowels("string");
-console.log("count of vowels: ", result);
+// const result = countVowels("string");
+// console.log("count of vowels: ", result);
+
+// L-TASK
+
+function reverseSentance(sentance: String) {
+    const words = sentance.split(' ');
+    const reversed = words.map(value => {
+        return value.split('').reverse().join('')
+    })
+    return reversed.join(' ');
+}
+const reversed = reverseSentance('We like coding');
+console.log(reversed);
