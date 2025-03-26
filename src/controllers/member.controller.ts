@@ -31,7 +31,7 @@ memberController.login = async (req: Request, res: Response) => {
          result = await memberService.login(input);
          // TODO: TOKENS AUTHENTICATION
 
-        res.json({Member: result});
+        res.json({member: result});
     } catch (err) {
         console.log("Error, login: ", err);
         if (err instanceof Errors) return res.status(err.code).json(err);
