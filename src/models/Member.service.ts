@@ -83,7 +83,6 @@ class MemberService {
             {memberNick: true, memberPassword: true}
         )
         .exec();
-        console.log("member: ", member);
         if(!member) {
             throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
         }
