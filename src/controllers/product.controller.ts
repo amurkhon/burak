@@ -2,6 +2,7 @@ import {Request, Response} from 'express';
 import { T } from "../libs/types/common";
 import Errors from '../libs/Errors';
 import ProductService from '../models/Product.service';
+import { AdminRequest } from '../libs/types/member';
 
 const productService = new ProductService;
 
