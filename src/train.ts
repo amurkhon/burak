@@ -1,6 +1,8 @@
 // G-TASK
 
 import { count } from "console";
+import { Interface } from "readline";
+import { T } from "./libs/types/common";
 
 // function  getHighestIndex(array: number[]) {
 //     const maxValue = Math.max.apply(null,array);
@@ -92,12 +94,27 @@ import { count } from "console";
 
 // L-TASK
 
-function reverseSentance(sentance: String) {
-    const words = sentance.split(' ');
-    const reversed = words.map(value => {
-        return value.split('').reverse().join('')
-    })
-    return reversed.join(' ');
+// function reverseSentance(sentance: String) {
+//     const words = sentance.split(' ');
+//     const reversed = words.map(value => {
+//         return value.split('').reverse().join('')
+//     })
+//     return reversed.join(' ');
+// }
+// const reversed = reverseSentance('We like coding');
+// console.log(reversed);
+
+// M-TASK
+
+function getSquareNumbers(array: number[]) {
+    let objects: {}[] = [];
+    array.map((value: number) => {
+        let squareNumbers: T = {};
+        squareNumbers.number = value;
+        squareNumbers.square = value**2;
+        objects.push(squareNumbers);
+    });
+    return objects;
 }
-const reversed = reverseSentance('We like coding');
-console.log(reversed);
+const objects = getSquareNumbers([1,2,3,4]);
+console.log(objects);
