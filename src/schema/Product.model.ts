@@ -8,7 +8,7 @@ const productSchema = new Schema({
         default: ProductStatus.PAUSE,
     },
 
-    productCollelction: {
+    productCollection: {
         type: String,
         enum: ProductCollelction,
         required: true,

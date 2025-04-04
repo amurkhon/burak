@@ -29,28 +29,36 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
 
         const data: ProductInput = req.body;
         data.productImages = req.files?.map((ele) => {
-            return ele.path;
+            return ele.path.replace(/\\/g,"/");
         });
 
+        console.log("data: ", data);
 
+        await productService.createNewProduct(data);
 
-        res.send("DONE!");
+        res.send(`<script> alert("Successful creation!"); window.location.replace('admin/product/all) </script>`);
     }
     catch(err) {
         console.log("Error, createNewProduct: ", err);
-        if (err instanceof Errors) return res.status(err.code).json(err);
-        else res.status(Errors.standart.code).json(Errors.standart);
+        const message = err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+        res.send(`<script> alert("${message}"); window.location.replace('admin/product/all) </script>`);
     }
 };
 
 productController.updateChosenProduct = async (req: Request, res: Response) => {
     try {
         console.log('updateChosenProduct');
+
+        const id = req.params.id;
+
+        const result = await productService.updateChosenProduct(id, req.body);
+        
+        res.send(`<script> alert("${result}"); window.location.replace('admin/product/all) </script>`);
     }
     catch(err) {
         console.log("Error, updateChosenProduct: ", err);
-        if (err instanceof Errors) return res.status(err.code).json(err);
-        else res.status(Errors.standart.code).json(Errors.standart);
+        const message = err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+        res.send(`<script> alert("${message}"); window.location.replace('admin/product/all) </script>`);
     }
 };
 
