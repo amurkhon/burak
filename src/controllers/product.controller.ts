@@ -12,12 +12,13 @@ const productController: T = {};
 productController.getAllProducts = async (req: Request, res: Response) => {
     try {
         console.log('getAllProducts');
-        res.render('products');
-    }
-    catch(err) {
+        const data = await productService.getAllProducts();
+
+        res.render("products", { products: data});
+    }catch(err) {
         console.log("Error, getAllProducts: ", err);
-        if (err instanceof Errors) return res.status(err.code).json(err);
-        else res.status(Errors.standart.code).json(Errors.standart);
+        const message = err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+        res.send(`<script> alert("${message}"); window.location.replace('admin/product/all) </script>`);
     }
 };
 
@@ -31,8 +32,6 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
         data.productImages = req.files?.map((ele) => {
             return ele.path.replace(/\\/g,"/");
         });
-
-        console.log("data: ", data);
 
         await productService.createNewProduct(data);
 

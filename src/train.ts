@@ -106,15 +106,30 @@ import { T } from "./libs/types/common";
 
 // M-TASK
 
-function getSquareNumbers(array: number[]) {
-    let objects: {}[] = [];
-    array.map((value: number) => {
-        let squareNumbers: T = {};
-        squareNumbers.number = value;
-        squareNumbers.square = value**2;
-        objects.push(squareNumbers);
+// function getSquareNumbers(array: number[]) {
+//     let objects: {}[] = [];
+//     array.map((value: number) => {
+//         let squareNumbers: T = {};
+//         squareNumbers.number = value;
+//         squareNumbers.square = value**2;
+//         objects.push(squareNumbers);
+//     });
+//     return objects;
+// }
+// const objects = getSquareNumbers([1,2,3,4]);
+// console.log(objects);
+
+// O-TASK
+
+function calculateSumOfNumbers(array: any[]){
+    let sum = 0;
+    array.forEach( item => {
+        if(typeof item === 'number'){
+            sum += item;
+        }
     });
-    return objects;
+    return sum;
 }
-const objects = getSquareNumbers([1,2,3,4]);
-console.log(objects);
+
+const result = calculateSumOfNumbers([10, '10', {son: 10}, true, 35]);
+console.log("result: ", result);
