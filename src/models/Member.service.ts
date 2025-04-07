@@ -1,5 +1,5 @@
 import MemberModel from "../schema/Member.model";
-import { LoginInput, Member, MemberChosenInput, MemberInput } from "../libs/types/member";
+import { LoginInput, Member, MemberUpdateInput, MemberInput } from "../libs/types/member";
 import Errors from "../libs/Errors";
 import { HttpCode } from "../libs/Errors";
 import { Message } from "../libs/Errors";
@@ -108,10 +108,10 @@ class MemberService {
         return result;
     };
 
-    public async updateChosenUser(id: string, input: MemberChosenInput): Promise<Member> {
-        id = shapeIntoMongooseObjectId(id);
+    public async updateChosenUser(input: MemberUpdateInput): Promise<Member> {
+        input._id = shapeIntoMongooseObjectId(input._id);
 
-        const user = await this.memberModel.findOneAndUpdate({ _id: id}, input, { new: true}).exec();
+        const user = await this.memberModel.findByIdAndUpdate({ _id: input._id}, input, { new: true}).exec();
         if(!user) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
 
         return user;

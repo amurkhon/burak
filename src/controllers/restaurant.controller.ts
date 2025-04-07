@@ -137,15 +137,14 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
 restaurantController.updateChosenUser = async (req: Request, res: Response) => {
     try {
         console.log("updateChosenUser");
-        const id = req.params.id
 
-        const result = await memberService.updateChosenUser(id, req.body);
+        const result = await memberService.updateChosenUser(req.body);
 
-        res.send(`<script> alert("${result}"); window.location.replace('admin/users/all) </script>`);
+        res.status(HttpCode.OK).json({ data: result });
     } catch(err) {
         console.log("Error, updateChosenUser: ", err);
-        const message = err instanceof Errors ? err.message : Message.UPDATE_FAILED;
-        res.send(`<script> alert("${message}"); window.location.replace('admin/users/all) </script>`);
+        if(err instanceof Errors) res.status(err.code).json(err);
+        else res.status(Errors.standart.code).json(Errors.standart);
 
     };
 };

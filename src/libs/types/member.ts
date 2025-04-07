@@ -36,8 +36,8 @@ export interface LoginInput {
     memberPassword: string;
 }
 
-export interface MemberChosenInput {
-    memberType?: MemberType;
+export interface MemberUpdateInput {
+    _id: ObjectId;
     memberStatus?: MemberStatus;
     memberNick?: string;
     memberPhone?:string;
@@ -45,7 +45,6 @@ export interface MemberChosenInput {
     memberAddress?: string;
     memberDesc?: string;
     memberImage?: string;
-    memberPoints?: number;
 }
 
 export interface AdminRequest extends Request {
