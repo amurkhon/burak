@@ -1,5 +1,25 @@
 <%- include("includes/header")%>
 <body>
     <div>USERS PAGE</div>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">ObjectId</th>
+            <th scope="col">MemberNick</th>
+            <th scope="col">MemberPhone</th>
+            <th scope="col">MemberStatus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.map((value, key) => { %>
+            <tr>
+            <th scope="row"> <%= value._id %> </th>
+            <td> <%= value.memberNick %> </td>
+            <td> <%= value.memberPhone %> </td>
+            <td> <%= value.memberStatus %> </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 <%- include('includes/footer') %>

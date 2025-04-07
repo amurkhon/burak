@@ -121,4 +121,33 @@ restaurantController.verifyRestaurant = (
     }
 };
 
+restaurantController.getUsers = async (req: Request, res: Response) => {
+    try {
+        console.log("getUsers");
+
+        const result = await memberService.getUsers();
+
+        res.render("users", {users: result});
+    } catch(err) {
+        console.log("Error, getUSers: ", err);
+        res.redirect("/admin/login");
+    }
+};
+
+restaurantController.updateChosenUser = async (req: Request, res: Response) => {
+    try {
+        console.log("updateChosenUser");
+        const id = req.params.id
+
+        const result = await memberService.updateChosenUser(id, req.body);
+
+        res.send(`<script> alert("${result}"); window.location.replace('admin/users/all) </script>`);
+    } catch(err) {
+        console.log("Error, updateChosenUser: ", err);
+        const message = err instanceof Errors ? err.message : Message.UPDATE_FAILED;
+        res.send(`<script> alert("${message}"); window.location.replace('admin/users/all) </script>`);
+
+    };
+};
+
 export default restaurantController;
