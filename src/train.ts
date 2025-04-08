@@ -121,15 +121,29 @@ import { T } from "./libs/types/common";
 
 // O-TASK
 
-function calculateSumOfNumbers(array: any[]){
-    let sum = 0;
-    array.forEach( item => {
-        if(typeof item === 'number'){
-            sum += item;
-        }
-    });
-    return sum;
-}
+// function calculateSumOfNumbers(array: any[]){
+//    let sum = 0;
+//    array.forEach( item => {
+//        if(typeof item === 'number'){
+//            sum += item;
+//        }
+//    });
+//    return sum;
+// }
 
-const result = calculateSumOfNumbers([10, '10', {son: 10}, true, 35]);
+// const result = calculateSumOfNumbers([10, '10', {son: 10}, true, 35]);
+// console.log("result: ", result);
+
+// P-TASK
+
+function objectToArray(object: {}) {
+    let array = [];
+    for (let [key, value] of Object.entries(object)){
+        array.push([key, value]);
+    };
+
+    return array;
+};
+
+const result = objectToArray({a:10, b:20, c:'Khan', d:true});
 console.log("result: ", result);
