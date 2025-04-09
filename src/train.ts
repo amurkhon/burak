@@ -136,14 +136,33 @@ import { T } from "./libs/types/common";
 
 // P-TASK
 
-function objectToArray(object: {}) {
-    let array = [];
-    for (let [key, value] of Object.entries(object)){
-        array.push([key, value]);
-    };
+// function objectToArray(object: {}) {
+//    let array = [];
+//    for (let [key, value] of Object.entries(object)){
+//        array.push([key, value]);
+//    };
+//
+//    return array;
+// };
 
-    return array;
-};
+// const result = objectToArray({a:10, b:20, c:'Khan', d:true});
+// console.log("result: ", result);
 
-const result = objectToArray({a:10, b:20, c:'Khan', d:true});
+// Q-TASK
+
+function hasProperty(obj: {}, str: string) {
+    let value = 0;
+    for (let key in obj) {
+        if(key === str){
+            value += 1;
+        }
+    }
+    if(value > 0) {
+        return true;
+    } else{
+        return false;
+    }
+}
+
+const result = hasProperty({name:"BMW", model: "M3"}, "model");
 console.log("result: ", result);
