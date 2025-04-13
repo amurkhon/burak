@@ -52,7 +52,6 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
         const id = req.params.id;
 
         const result = await productService.updateChosenProduct(id, req.body);
-        
         res.send(`<script> alert("${result}"); window.location.replace('/admin/product/all) </script>`);
     }
     catch(err) {
