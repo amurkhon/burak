@@ -52,12 +52,12 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
         const id = req.params.id;
 
         const result = await productService.updateChosenProduct(id, req.body);
-        res.send(`<script> alert("${result}"); window.location.replace('/admin/product/all) </script>`);
+        res.send(`<script> alert("${result}"); window.location.replace('/admin/product/all') </script>`);
     }
     catch(err) {
         console.log("Error, updateChosenProduct: ", err);
         const message = err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
-        res.send(`<script> alert("${message}"); window.location.replace('/admin/product/all) </script>`);
+        res.send(`<script> alert("${message}"); window.location.replace('/admin/product/all') </script>`);
     }
 };
 
