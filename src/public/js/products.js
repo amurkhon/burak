@@ -41,12 +41,12 @@ $(function () {
 });
 
 function validateForm() {
-    const productName = $(".product-name").val();
-    const productPrice = $(".product-price").val();
-    const productLeftCount = $(".product-left-count").val();
-    const productCollection = $(".product-collection").val();
-    const productDesc = $(".product-desc").val();
-    const productStatus = $(".product-status").val();
+    const productName = $(".product-name").val(),
+     productPrice = $(".product-price").val(),
+     productLeftCount = $(".product-left-count").val(),
+     productCollection = $(".product-collection").val(),
+     productDesc = $(".product-desc").val(),
+     productStatus = $(".product-status").val();
 
 
     if (
@@ -64,11 +64,10 @@ function validateForm() {
 
 function previewFileHandler(input, order) {
     const imgClassName = input.className;
-    console.log("input: ", input);
 
-    const file = $(`.${imgClassName}`).get(0).files[0];
-    const fileType = file["type"];
-    const validImageType = ["image/jpg", "image/jpeg", "image/png"];
+    const file = $(`.${imgClassName}`).get(0).files[0],
+     fileType = file["type"],
+     validImageType = ["image/jpg", "image/jpeg", "image/png"];
     if(!validImageType.includes(fileType)) {
         alert("Please insert only jpg, jpeg and png!");
     } else {

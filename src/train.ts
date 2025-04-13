@@ -150,19 +150,19 @@ import { T } from "./libs/types/common";
 
 // Q-TASK
 
-function hasProperty(obj: {}, str: string) {
-    let value = 0;
-    for (let key in obj) {
-        if(key === str){
-            value += 1;
-        }
-    }
-    if(value > 0) {
-        return true;
-    } else{
-        return false;
-    }
-}
+// function hasProperty(obj: {}, str: string) {
+//    let value = 0;
+//    for (let key in obj) {
+//        if(key === str){
+//            value += 1;
+//        }
+//    }
+//    if(value > 0) {
+//        return true;
+//    } else{
+//        return false;
+//    }
+// }
 
-const result = hasProperty({name:"BMW", model: "M3"}, "model");
-console.log("result: ", result);
+// const result = hasProperty({name:"BMW", model: "M3"}, "model");
+// console.log("result: ", result);
