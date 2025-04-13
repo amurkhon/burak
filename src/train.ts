@@ -166,3 +166,18 @@ import { T } from "./libs/types/common";
 
 // const result = hasProperty({name:"BMW", model: "M3"}, "model");
 // console.log("result: ", result);
+
+// R-TASK
+
+function calculate (value: string) {
+    let sum = 0;
+    const string = value.split('');
+    for(let i=1; i < 10; i++ ) {
+        if(string.includes(i.toString())){
+            sum += i;
+        }
+    }
+    return sum;
+}
+const result = calculate('9+6');
+console.log("result: ", result);
