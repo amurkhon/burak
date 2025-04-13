@@ -18,13 +18,14 @@ productController.getAllProducts = async (req: Request, res: Response) => {
     }catch(err) {
         console.log("Error, getAllProducts: ", err);
         const message = err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
-        res.send(`<script> alert("${message}"); window.location.replace('admin/product/all) </script>`);
+        res.send(`<script> alert("${message}"); window.location.replace('/admin/product/all) </script>`);
     }
 };
 
 productController.createNewProduct = async (req: AdminRequest, res: Response) => {
     try {
         console.log('createNewProduct');
+        console.log("req: ", req.body);
 
         if(!req.files?.length) throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
@@ -35,12 +36,12 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
 
         await productService.createNewProduct(data);
 
-        res.send(`<script> alert("Successful creation!"); window.location.replace('admin/product/all) </script>`);
+        res.send(`<script> alert("Successful creation!"); window.location.replace('/admin/product/all') </script>`);
     }
     catch(err) {
         console.log("Error, createNewProduct: ", err);
         const message = err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
-        res.send(`<script> alert("${message}"); window.location.replace('admin/product/all) </script>`);
+        res.send(`<script> alert("${message}"); window.location.replace('/admin/product/all') </script>`);
     }
 };
 
@@ -52,12 +53,12 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
 
         const result = await productService.updateChosenProduct(id, req.body);
         
-        res.send(`<script> alert("${result}"); window.location.replace('admin/product/all) </script>`);
+        res.send(`<script> alert("${result}"); window.location.replace('/admin/product/all) </script>`);
     }
     catch(err) {
         console.log("Error, updateChosenProduct: ", err);
         const message = err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
-        res.send(`<script> alert("${message}"); window.location.replace('admin/product/all) </script>`);
+        res.send(`<script> alert("${message}"); window.location.replace('/admin/product/all) </script>`);
     }
 };
 
