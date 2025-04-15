@@ -169,15 +169,31 @@ import { T } from "./libs/types/common";
 
 // R-TASK
 
-function calculate (value: string) {
-    let sum = 0;
-    const string = value.split('');
-    for(let i=1; i < 10; i++ ) {
-        if(string.includes(i.toString())){
-            sum += i;
+// function calculate (value: string) {
+//     let sum = 0;
+//     const string = value.split('');
+//     for(let i=1; i < 10; i++ ) {
+//         if(string.includes(i.toString())){
+//             sum += i;
+//         }
+//     }
+//     return sum;
+// }
+// const result = calculate('9+6');
+// console.log("result: ", result);
+
+// TASK-S
+
+function missingNumber(array: number[]) {
+    let main_array: number [] = array.sort();
+    let number;
+    for(let i=0; i<main_array.length; i++) {
+        if(!main_array.includes(i)){
+            number=i;
         }
     }
-    return sum;
+    return number;
 }
-const result = calculate('9+6');
+
+const result = missingNumber([3,0,1]);
 console.log("result: ", result);
