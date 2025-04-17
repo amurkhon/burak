@@ -184,16 +184,26 @@ import { T } from "./libs/types/common";
 
 // TASK-S
 
-function missingNumber(array: number[]) {
-    let main_array: number [] = array.sort();
-    let number;
-    for(let i=0; i<main_array.length; i++) {
-        if(!main_array.includes(i)){
-            number=i;
-        }
-    }
-    return number;
+// function missingNumber(array: number[]) {
+//     let main_array: number [] = array.sort();
+//     let number;
+//     for(let i=0; i<main_array.length; i++) {
+//         if(!main_array.includes(i)){
+//             number=i;
+//         }
+//     }
+//     return number;
+// }
+
+// const result = missingNumber([3,0,1]);
+// console.log("result: ", result);
+
+// T-TASK
+
+function mergeSortedArrays(array1: number[], array2: number[]) {
+const sorted_numbers = array1.concat(array2).sort();
+return sorted_numbers;
 }
 
-const result = missingNumber([3,0,1]);
+const result = mergeSortedArrays([5,3,9], [7,5,9,2,4]);
 console.log("result: ", result);
