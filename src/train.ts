@@ -200,10 +200,25 @@ import { T } from "./libs/types/common";
 
 // T-TASK
 
-function mergeSortedArrays(array1: number[], array2: number[]) {
-const sorted_numbers = array1.concat(array2).sort();
-return sorted_numbers;
+// function mergeSortedArrays(array1: number[], array2: number[]) {
+// const sorted_numbers = array1.concat(array2).sort();
+// return sorted_numbers;
+// }
+
+// const result = mergeSortedArrays([5,3,9], [7,5,9,2,4]);
+// console.log("result: ", result);
+
+// TASK-U
+
+function sumOdds(number: number) {
+    let count = 0;
+    for (let i=0; i<number; i++){
+        if(i%2) {
+            count +=1;
+        }
+    }
+    return count;
 }
 
-const result = mergeSortedArrays([5,3,9], [7,5,9,2,4]);
+const result = sumOdds(9);
 console.log("result: ", result);
