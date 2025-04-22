@@ -210,15 +210,36 @@ import { T } from "./libs/types/common";
 
 // TASK-U
 
-function sumOdds(number: number) {
+// function sumOdds(number: number) {
+//     let count = 0;
+//     for (let i=0; i<number; i++){
+//         if(i%2) {
+//             count +=1;
+//         }
+//     }
+//     return count;
+// }
+
+// const result = sumOdds(9);
+// console.log("result: ", result);
+
+// TASK-V
+
+function countChars(word: string) {
+    const word_letters = word.split("");
+    let countObject: any = {};
     let count = 0;
-    for (let i=0; i<number; i++){
-        if(i%2) {
-            count +=1;
+    word_letters.map((ele, index, array) => {
+        for (let letter of array) {
+            if(ele.toUpperCase() === letter.toUpperCase()) {
+                count += 1;
+            }
+            countObject[ele] = count;
         }
-    }
-    return count;
+        count = 0;
+    })
+    return countObject;
 }
 
-const result = sumOdds(9);
+const result = countChars("hello");
 console.log("result: ", result);
