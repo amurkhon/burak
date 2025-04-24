@@ -225,21 +225,34 @@ import { T } from "./libs/types/common";
 
 // TASK-V
 
-function countChars(word: string) {
-    const word_letters = word.split("");
-    let countObject: any = {};
-    let count = 0;
-    word_letters.map((ele, index, array) => {
-        for (let letter of array) {
-            if(ele.toUpperCase() === letter.toUpperCase()) {
-                count += 1;
-            }
-            countObject[ele] = count;
-        }
-        count = 0;
-    })
-    return countObject;
+// function countChars(word: string) {
+//    const word_letters = word.split("");
+//    let countObject: any = {};
+//    let count = 0;
+//    word_letters.map((ele, index, array) => {
+//        for (let letter of array) {
+//            if(ele.toUpperCase() === letter.toUpperCase()) {
+//                count += 1;
+//            }
+//            countObject[ele] = count;
+//        }
+//        count = 0;
+//    })
+//    return countObject;
+// }
+
+// const result = countChars("hello");
+// console.log("result: ", result);
+
+// W-TASK
+
+function chunkArray<n>(array: n[], value: number): n[][] {
+    let new_list = [];
+    for(let i=0; i<array.length; i += value) {
+        new_list.push(array.slice(i, i+value));
+    }
+    return new_list;
 }
 
-const result = countChars("hello");
+const result = chunkArray([1,2,3,4,5,6,7], 3);
 console.log("result: ", result);
