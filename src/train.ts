@@ -2,7 +2,6 @@
 
 import { count } from "console";
 import { Interface } from "readline";
-import { T } from "./libs/types/common";
 
 // function  getHighestIndex(array: number[]) {
 //     const maxValue = Math.max.apply(null,array);
@@ -246,13 +245,35 @@ import { T } from "./libs/types/common";
 
 // W-TASK
 
-function chunkArray<n>(array: n[], value: number): n[][] {
-    let new_list = [];
-    for(let i=0; i<array.length; i += value) {
-        new_list.push(array.slice(i, i+value));
-    }
-    return new_list;
-}
+// function chunkArray<n>(array: n[], value: number): n[][] {
+//     let new_list = [];
+//     for(let i=0; i<array.length; i += value) {
+//         new_list.push(array.slice(i, i+value));
+//     }
+//     return new_list;
+// }
 
-const result = chunkArray([1,2,3,4,5,6,7], 3);
+// const result = chunkArray([1,2,3,4,5,6,7], 3);
+// console.log("result: ", result);
+
+// X-TASK
+
+function countOccurances(info: any, string: string) {
+    let count = 0;
+    for(let key in info) {
+        if(key == string) {
+            count += 1;
+            }
+        if(key != string) {
+            for(let key2 in info[key]){
+                    if( key2 == string){
+                        count += 1;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+const result = countOccurances({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model');
 console.log("result: ", result);
