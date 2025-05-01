@@ -258,22 +258,37 @@ import { Interface } from "readline";
 
 // X-TASK
 
-function countOccurances(info: any, string: string) {
-    let count = 0;
-    for(let key in info) {
-        if(key == string) {
-            count += 1;
-            }
-        if(key != string) {
-            for(let key2 in info[key]){
-                    if( key2 == string){
-                        count += 1;
-                    }
-                }
-            }
-        }
-        return count;
-    }
+// function countOccurances(info: any, string: string) {
+//     let count = 0;
+//     for(let key in info) {
+//         if(key == string) {
+//             count += 1;
+//             }
+//         if(key != string) {
+//             for(let key2 in info[key]){
+//                     if( key2 == string){
+//                         count += 1;
+//                     }
+//                 }
+//             }
+//         }
+//         return count;
+//     }
 
-const result = countOccurances({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model');
+// const result = countOccurances({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model');
+// console.log("result: ", result);
+
+
+// Y-TASK
+
+function findIntersection(array1: Number[], array2: Number[]) {
+    let Intersection: Number[] = [];
+    for(let number of array1) {
+        if(array2.includes(number)) 
+            Intersection.push(number);
+    }
+    return Intersection;
+}
+
+const result = findIntersection([1,2,3,7,4,8], [3,2,0,7]);
 console.log("result: ", result);
