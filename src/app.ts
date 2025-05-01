@@ -4,6 +4,7 @@ import  router from './router';
 import routerAdmin from './router-admin';
 import morgan from 'morgan';
 import { MORGAN_FORMAT } from './libs/config';
+import cookieParser from 'cookie-parser';
 
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
@@ -19,11 +20,10 @@ const store = new MongoDBStore({
 /* ENTRANCE */
 
 const app = express();
-console.log(__dirname);
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
 
 /* SESSIONS */
