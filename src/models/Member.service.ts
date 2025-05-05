@@ -15,6 +15,19 @@ class MemberService {
 
     /** SPA */
 
+    public async getRestaurant(): Promise<Member> {
+        const result = await this.memberModel
+        .findOne({memberType: MemberType.RESTAURANT})
+        .lean()
+        .exec();
+
+        console.log("typeof result: ", typeof result);
+
+        if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+        return result;
+    };
+
     public async signup(input: MemberInput): Promise<Member> {
 
         const salt = await bcrypt.genSalt();

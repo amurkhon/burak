@@ -281,14 +281,30 @@ import { Interface } from "readline";
 
 // Y-TASK
 
-function findIntersection(array1: Number[], array2: Number[]) {
-    let Intersection: Number[] = [];
-    for(let number of array1) {
-        if(array2.includes(number)) 
-            Intersection.push(number);
-    }
-    return Intersection;
-}
+// function findIntersection(array1: Number[], array2: Number[]) {
+//     let Intersection: Number[] = [];
+//     for(let number of array1) {
+//         if(array2.includes(number)) 
+//             Intersection.push(number);
+//     }
+//     return Intersection;
+// }
 
-const result = findIntersection([1,2,3,7,4,8], [3,2,0,7]);
+// const result = findIntersection([1,2,3,7,4,8], [3,2,0,7]);
+// console.log("result: ", result);
+
+// TASK-Z
+
+function sumEvens(numbers: number[]) {
+    let sum = 0;
+
+    numbers.forEach( (e) => {
+        if(e%2 == 0) {
+            sum =sum + e;
+        };
+    });
+    return sum;
+};
+
+const result = sumEvens([1,2,3,10,7,4,8]);
 console.log("result: ", result);
