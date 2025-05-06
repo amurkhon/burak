@@ -15,6 +15,14 @@ export interface Product {
     updateAt: Date
 }
 
+export interface ProductInquiry {
+    order: string;
+    page: number;
+    limit: number;
+    productCollection?: ProductCollelction;
+    search?: string;
+}
+
 export interface ProductInput {
     productStatus?: ProductStatus,
     productCollection: ProductCollelction,
