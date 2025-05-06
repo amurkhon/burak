@@ -54,7 +54,7 @@ const productSchema = new Schema({
     productViews: {
         type: Number,
         default: 0,
-    }
+    },
 
 }, { timestamps: true } // updatedAt, createdUp
 );
