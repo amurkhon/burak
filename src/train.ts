@@ -295,16 +295,25 @@ import { Interface } from "readline";
 
 // TASK-Z
 
-function sumEvens(numbers: number[]) {
-    let sum = 0;
+// function sumEvens(numbers: number[]) {
+//     let sum = 0;
 
-    numbers.forEach( (e) => {
-        if(e%2 == 0) {
-            sum =sum + e;
-        };
-    });
-    return sum;
+//     numbers.forEach( (e) => {
+//         if(e%2 == 0) {
+//             sum =sum + e;
+//         };
+//     });
+//     return sum;
+// };
+
+// const result = sumEvens([1,2,3,10,7,4,8]);
+// console.log("result: ", result);
+
+// ZA-TASK
+
+function sortByAge(array: any[]) {
+    return array.sort(function(a, b){let age; return a.age - b.age});
 };
 
-const result = sumEvens([1,2,3,10,7,4,8]);
+const result = sortByAge([{age:23}, {age:21}, {age:13},{age:12}]);
 console.log("result: ", result);
