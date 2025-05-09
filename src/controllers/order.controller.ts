@@ -3,8 +3,9 @@ import { T } from "../libs/types/common";
 import Errors, { HttpCode } from "../libs/Errors";
 import { Response } from "express";
 import OrderService from "../models/Order.service";
-import { OrderInquiry, OrderItemInput } from "../libs/types/order";
+import { OrderInquiry, OrderItemInput, OrderUpdateInput } from "../libs/types/order";
 import { OrderStatus } from "../libs/enum/order.enum";
+import { shapeIntoMongooseObjectId } from "../libs/config";
 
 const orderController: T = {};
 
@@ -44,6 +45,25 @@ orderController.getMyOrders = async (
         res.status(HttpCode.OK).json(orders);
     } catch (err) {
         console.log("Error, createOrder: ", err);
+        if (err instanceof Errors) return res.status(err.code).json(err);
+        else res.status(Errors.standart.code).json(Errors.standart);
+    }
+};
+
+orderController.updateOrder = async (
+    req: ExtendedRequest,
+    res: Response
+) => {
+    try{
+        console.log("updateOrder");
+        const input: OrderUpdateInput = req.body;
+        
+        const result = await orderService.updateOrder(req.member, input);
+        
+
+        res.status(HttpCode.OK).json(result);
+    } catch (err) {
+        console.log("Error, updateOrder: ", err);
         if (err instanceof Errors) return res.status(err.code).json(err);
         else res.status(Errors.standart.code).json(Errors.standart);
     }

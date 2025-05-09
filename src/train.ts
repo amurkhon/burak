@@ -311,9 +311,18 @@ import { Interface } from "readline";
 
 // ZA-TASK
 
-function sortByAge(array: any[]) {
-    return array.sort(function(a, b){let age; return a.age - b.age});
-};
+// function sortByAge(array: any[]) {
+//     return array.sort(function(a, b){let age; return a.age - b.age});
+// };
 
-const result = sortByAge([{age:23}, {age:21}, {age:13},{age:12}]);
-console.log("result: ", result);
+// const result = sortByAge([{age:23}, {age:21}, {age:13},{age:12}]);
+// console.log("result: ", result);
+
+// TASK-ZB
+
+function randomBetween(a: number, b: number) {
+    return Math.floor(Math.random()*(b-a)) + a;
+}
+
+const result = randomBetween(45,50);
+console.log(result);
