@@ -320,9 +320,20 @@ import { Interface } from "readline";
 
 // TASK-ZB
 
-function randomBetween(a: number, b: number) {
-    return Math.floor(Math.random()*(b-a)) + a;
+// function randomBetween(a: number, b: number) {
+//    return Math.floor(Math.random()*(b-a)) + a;
+// }
+
+// const result = randomBetween(45,50);
+// console.log(result);
+
+// TASK-ZD
+
+function changeNumberInArray(index: number, array: Number[], value: number) {
+    array[index] = value;
+
+    return array;
 }
 
-const result = randomBetween(45,50);
+const result = changeNumberInArray(1, [1,3,7,2], 2);
 console.log(result);
