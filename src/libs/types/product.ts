@@ -1,6 +1,8 @@
+import { ObjectId } from 'mongoose';
 import { ProductCollelction, ProductSize, ProductStatus, ProductVolume } from "../enum/product.enum";
 
 export interface Product {
+    _id: ObjectId,
     productStatus: ProductStatus,
     productCollection: ProductCollelction,
     productName: String,

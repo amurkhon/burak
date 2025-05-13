@@ -329,11 +329,34 @@ import { Interface } from "readline";
 
 // TASK-ZD
 
-function changeNumberInArray(index: number, array: Number[], value: number) {
-    array[index] = value;
+// function changeNumberInArray(index: number, array: Number[], value: number) {
+//     array[index] = value;
 
-    return array;
-}
+//     return array;
+// }
 
-const result = changeNumberInArray(1, [1,3,7,2], 2);
+// const result = changeNumberInArray(1, [1,3,7,2], 2);
+// console.log(result);
+
+// TASK-ZE
+
+function removeDuplicate(string: string) {
+    // let letters = string.split("");
+    let target = '';
+    let count = 0;
+    for (let i=1; i < string.length; i++) {
+        
+        if(string.charAt(i) === string.charAt(i+1)) {
+            target = string.replace(string.charAt(i+1), '');
+            count++;
+        }
+    }
+    if( count == 0 ) {
+        target = string;
+    }
+
+    return target;
+};
+
+const result = removeDuplicate("stringg");
 console.log(result);
