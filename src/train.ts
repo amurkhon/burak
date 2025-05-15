@@ -340,23 +340,39 @@ import { Interface } from "readline";
 
 // TASK-ZE
 
-function removeDuplicate(string: string) {
-    // let letters = string.split("");
-    let target = '';
-    let count = 0;
-    for (let i=1; i < string.length; i++) {
+// function removeDuplicate(string: string) {
+//     // let letters = string.split("");
+//     let target = '';
+//     let count = 0;
+//     for (let i=1; i < string.length; i++) {
         
-        if(string.charAt(i) === string.charAt(i+1)) {
-            target = string.replace(string.charAt(i+1), '');
-            count++;
-        }
-    }
-    if( count == 0 ) {
-        target = string;
-    }
+//         if(string.charAt(i) === string.charAt(i+1)) {
+//             target = string.replace(string.charAt(i+1), '');
+//             count++;
+//         }
+//     }
+//     if( count == 0 ) {
+//         target = string;
+//     }
 
+//     return target;
+// };
+
+// const result = removeDuplicate("stringg");
+// console.log(result);
+
+// ZF-TASK
+
+function capitalizeWords(string: string) {
+    const words = string.split(" ");
+    let target = "";
+    words.map((value) => {
+        if(value.length > 2)
+            target += value.charAt(0).toUpperCase() + value.slice(1) + " ";
+        else target += value + " ";
+    });
     return target;
 };
 
-const result = removeDuplicate("stringg");
+const result = capitalizeWords("name should be a string");
 console.log(result);
