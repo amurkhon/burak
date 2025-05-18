@@ -363,16 +363,34 @@ import { Interface } from "readline";
 
 // ZF-TASK
 
-function capitalizeWords(string: string) {
+// function capitalizeWords(string: string) {
+//     const words = string.split(" ");
+//     let target = "";
+//     words.map((value) => {
+//         if(value.length > 2)
+//             target += value.charAt(0).toUpperCase() + value.slice(1) + " ";
+//         else target += value + " ";
+//     });
+//     return target;
+// };
+
+// const result = capitalizeWords("name should be a string");
+// console.log(result);
+
+// ZG-TASK
+
+function snakeCaseWords(string: string) {
     const words = string.split(" ");
     let target = "";
-    words.map((value) => {
-        if(value.length > 2)
-            target += value.charAt(0).toUpperCase() + value.slice(1) + " ";
-        else target += value + " ";
-    });
-    return target;
-};
+    for( let i=0; i<words.length; i++){
+        if(i == words.length-1){
+            target += words[i];
+        }
+        else { target += words[i] + '_';}
+    }
 
-const result = capitalizeWords("name should be a string");
+    return target;
+}
+
+const result = snakeCaseWords("name should be a string");
 console.log(result);
