@@ -379,18 +379,33 @@ import { Interface } from "readline";
 
 // ZG-TASK
 
-function snakeCaseWords(string: string) {
-    const words = string.split(" ");
-    let target = "";
-    for( let i=0; i<words.length; i++){
-        if(i == words.length-1){
-            target += words[i];
-        }
-        else { target += words[i] + '_';}
-    }
+// function snakeCaseWords(string: string) {
+//     const words = string.split(" ");
+//     let target = "";
+//     for( let i=0; i<words.length; i++){
+//         if(i == words.length-1){
+//             target += words[i];
+//         }
+//         else { target += words[i] + '_';}
+//     }
 
-    return target;
+//     return target;
+// }
+
+// const result = snakeCaseWords("name should be a string");
+// console.log(result);
+
+// ZH-TASK
+
+function findDisappearedNumbers(array: number[]) {
+    let d_numbers = [];
+    for( let i = array[0]; i < array[array.length-1]; i++) {
+        if(!array.includes(i)){
+            d_numbers.push(i);
+        }
+    }
+    return d_numbers;
 }
 
-const result = snakeCaseWords("name should be a string");
+const result = findDisappearedNumbers([1, 3, 4, 7]);
 console.log(result);
