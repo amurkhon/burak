@@ -397,15 +397,25 @@ import { Interface } from "readline";
 
 // ZH-TASK
 
-function findDisappearedNumbers(array: number[]) {
-    let d_numbers = [];
-    for( let i = array[0]; i < array[array.length-1]; i++) {
-        if(!array.includes(i)){
-            d_numbers.push(i);
-        }
-    }
-    return d_numbers;
-}
+// function findDisappearedNumbers(array: number[]) {
+//     let d_numbers = [];
+//     for( let i = array[0]; i < array[array.length-1]; i++) {
+//         if(!array.includes(i)){
+//             d_numbers.push(i);
+//         }
+//     }
+//     return d_numbers;
+// }
 
-const result = findDisappearedNumbers([1, 3, 4, 7]);
-console.log(result);
+// const result = findDisappearedNumbers([1, 3, 4, 7]);
+// console.log(result);
+
+// ZI-TASK
+
+function delayHelloWorld(str: string) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>resolve(str), 3000);
+    });
+};
+
+delayHelloWorld("Hello World!").then(greeting => {console.log("result: ", greeting)});

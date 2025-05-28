@@ -86,7 +86,7 @@ class OrderService {
                         from: "products",
                         localField: "orderItems.productId",
                         foreignField: "_id",
-                        as: "products",
+                        as: "productData",
                     }
                 }
             ]).exec();
