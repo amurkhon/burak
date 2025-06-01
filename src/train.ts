@@ -412,10 +412,34 @@ import { Interface } from "readline";
 
 // ZI-TASK
 
-function delayHelloWorld(str: string) {
-    return new Promise((resolve, reject) => {
-        setTimeout(()=>resolve(str), 3000);
-    });
-};
+// function delayHelloWorld(str: string) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(()=>resolve(str), 3000);
+//     });
+// };
 
-delayHelloWorld("Hello World!").then(greeting => {console.log("result: ", greeting)});
+// delayHelloWorld("Hello World!").then(greeting => {console.log("result: ", greeting)});
+
+// ZJ-TASK
+
+function reduceNestedArray(array: any[]) {
+    let sum = array.reduce((total, value) => {
+        if (typeof value === 'number')
+            return total + value;
+        else {
+            return total + value.reduce((total: number, value: any) => {
+                                if (typeof value === 'number')
+                                    return total + value;
+                                else {
+                                    return total + value.reduce((total: number, value: number) => {
+                                                        return total + value;
+                                                    }) 
+                                    };
+                            }) 
+            };
+    });
+    return sum;
+}
+
+const result = reduceNestedArray([1,[1,2,[4]]]);
+console.log("result: ", result);
