@@ -422,24 +422,47 @@ import { Interface } from "readline";
 
 // ZJ-TASK
 
-function reduceNestedArray(array: any[]) {
-    let sum = array.reduce((total, value) => {
-        if (typeof value === 'number')
-            return total + value;
-        else {
-            return total + value.reduce((total: number, value: any) => {
-                                if (typeof value === 'number')
-                                    return total + value;
-                                else {
-                                    return total + value.reduce((total: number, value: number) => {
-                                                        return total + value;
-                                                    }) 
-                                    };
-                            }) 
-            };
-    });
-    return sum;
+// function reduceNestedArray(array: any[]) {
+//     let sum = array.reduce((total, value) => {
+//         if (typeof value === 'number')
+//             return total + value;
+//         else {
+//             return total + value.reduce((total: number, value: any) => {
+//                                 if (typeof value === 'number')
+//                                     return total + value;
+//                                 else {
+//                                     return total + value.reduce((total: number, value: number) => {
+//                                                         return total + value;
+//                                                     }) 
+//                                     };
+//                             }) 
+//             };
+//     });
+//     return sum;
+// }
+
+// const result = reduceNestedArray([1,[1,2,[4]]]);
+// console.log("result: ", result);
+
+// ZR-TASK
+
+function singleNumbers(array: number[]) {
+    let count: number = 0;
+    let numbers: number[] = [];
+    for (let ele of array) {
+        array.forEach((value) => {
+            if(ele === value){
+                count++
+            }
+        })
+        if(count===1){
+            if(!numbers.includes(ele))
+            numbers.push(ele);
+        }
+        count = 0;
+    }
+    return numbers[0];
 }
 
-const result = reduceNestedArray([1,[1,2,[4]]]);
+const result = singleNumbers([1,1,2,3,3,5,5]);
 console.log("result: ", result);
