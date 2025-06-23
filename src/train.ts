@@ -444,7 +444,7 @@ import { Interface } from "readline";
 // const result = reduceNestedArray([1,[1,2,[4]]]);
 // console.log("result: ", result);
 
-// ZR-TASK
+// ZT-TASK
 
 function singleNumbers(array: number[]) {
     let count: number = 0;
@@ -461,8 +461,16 @@ function singleNumbers(array: number[]) {
         }
         count = 0;
     }
-    return numbers[0];
+    return numbers;
 }
 
-const result = singleNumbers([1,1,2,3,3,5,5]);
-console.log("result: ", result);
+function sumOfUniquie(array: number[]) {
+    const sum = singleNumbers(array).reduce((total, value) => {
+        return total + value;
+    });
+
+    return sum;
+};
+
+const result = sumOfUniquie([1,1,2,4]);
+console.log('result: ', result);
