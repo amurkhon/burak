@@ -444,33 +444,18 @@ import { Interface } from "readline";
 // const result = reduceNestedArray([1,[1,2,[4]]]);
 // console.log("result: ", result);
 
-// ZT-TASK
+// ZU-TASK
 
-function singleNumbers(array: number[]) {
-    let count: number = 0;
-    let numbers: number[] = [];
-    for (let ele of array) {
-        array.forEach((value) => {
-            if(ele === value){
-                count++
-            }
-        })
-        if(count===1){
-            if(!numbers.includes(ele))
-            numbers.push(ele);
-        }
-        count = 0;
-    }
-    return numbers;
+function moveZeros(array: number[]) {
+    const numbers: number[] = [];
+    const zeros: number[] = [];
+    array.forEach((value) => {
+        if(value != 0)
+            numbers.push(value);
+        else zeros.push(value);
+    });
+    return numbers.concat(zeros);
 }
 
-function sumOfUniquie(array: number[]) {
-    const sum = singleNumbers(array).reduce((total, value) => {
-        return total + value;
-    });
-
-    return sum;
-};
-
-const result = sumOfUniquie([1,1,2,4]);
-console.log('result: ', result);
+const result = moveZeros([0, 1, 0, 3, 12]);
+console.log("result: ", result);
