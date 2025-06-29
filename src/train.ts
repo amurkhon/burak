@@ -446,16 +446,32 @@ import { Interface } from "readline";
 
 // ZU-TASK
 
-function moveZeros(array: number[]) {
-    const numbers: number[] = [];
-    const zeros: number[] = [];
-    array.forEach((value) => {
-        if(value != 0)
-            numbers.push(value);
-        else zeros.push(value);
-    });
-    return numbers.concat(zeros);
+// function moveZeros(array: number[]) {
+//     const numbers: number[] = [];
+//     const zeros: number[] = [];
+//     array.forEach((value) => {
+//         if(value != 0)
+//             numbers.push(value);
+//         else zeros.push(value);
+//     });
+//     return numbers.concat(zeros);
+// }
+
+// const result = moveZeros([0, 1, 0, 3, 12]);
+// console.log("result: ", result);
+
+// ZV-TASK
+function groupedBy(arr: any[], str: string) {
+    const result: any = {};
+    for( let item of arr) {
+        for (let x in item) {
+            if(x === str){
+                result[item[x]] = [item];
+            }
+        }
+    }
+    return result;
 }
 
-const result = moveZeros([0, 1, 0, 3, 12]);
+const result = groupedBy([{ name: "Alice", age: 30, city: "New York" },{ name: "Bob", age: 25, city: "London" }], 'age');
 console.log("result: ", result);
