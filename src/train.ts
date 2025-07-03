@@ -461,17 +461,34 @@ import { Interface } from "readline";
 // console.log("result: ", result);
 
 // ZV-TASK
-function groupedBy(arr: any[], str: string) {
-    const result: any = {};
-    for( let item of arr) {
-        for (let x in item) {
-            if(x === str){
-                result[item[x]] = [item];
-            }
-        }
-    }
-    return result;
-}
+// function groupedBy(arr: any[], str: string) {
+//     const result: any = {};
+//     for( let item of arr) {
+//         for (let x in item) {
+//             if(x === str){
+//                 result[item[x]] = [item];
+//             }
+//         }
+//     }
+//     return result;
+// }
 
-const result = groupedBy([{ name: "Alice", age: 30, city: "New York" },{ name: "Bob", age: 25, city: "London" }], 'age');
+// const result = groupedBy([{ name: "Alice", age: 30, city: "New York" },{ name: "Bob", age: 25, city: "London" }], 'age');
+// console.log("result: ", result);
+
+
+// ZW-TASK
+
+function checkArray(arr: any[]) {
+    let types = [];
+    for (let value of arr) {
+        types.push(typeof value);
+    }
+    console.log('types:', types);
+    if( !types.includes('string') || !types.includes('number')){
+        return false;
+    }
+    else return true;
+}
+const result = checkArray(['hello',111,'hi']);
 console.log("result: ", result);
