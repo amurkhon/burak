@@ -2,6 +2,7 @@
 
 import { count } from "console";
 import { Interface } from "readline";
+import { T } from "./libs/types/common";
 
 // function  getHighestIndex(array: number[]) {
 //     const maxValue = Math.max.apply(null,array);
@@ -479,16 +480,43 @@ import { Interface } from "readline";
 
 // ZW-TASK
 
-function checkArray(arr: any[]) {
-    let types = [];
-    for (let value of arr) {
-        types.push(typeof value);
+// function checkArray(arr: any[]) {
+//     let types = [];
+//     for (let value of arr) {
+//         types.push(typeof value);
+//     }
+//     console.log('types:', types);
+//     if( !types.includes('string') || !types.includes('number')){
+//         return false;
+//     }
+//     else return true;
+// }
+// const result = checkArray(['hello',111,'hi']);
+// console.log("result: ", result);
+
+
+// ZX-TASK
+
+function unflattenObject(obj: T) {
+    let unflattenObject: T = {};
+    for(let ele in obj) {
+        if(ele.includes('.')){
+            let str1 = String(ele.split('.')[0]);
+            let str2 = String(ele.split('.')[1]);
+            if(!unflattenObject[str1]){
+                unflattenObject[str1] = {};
+            }
+            unflattenObject[str1][str2] = obj[ele];
+        } else unflattenObject[ele] = obj[ele];
     }
-    console.log('types:', types);
-    if( !types.includes('string') || !types.includes('number')){
-        return false;
-    }
-    else return true;
+    return unflattenObject;
 }
-const result = checkArray(['hello',111,'hi']);
-console.log("result: ", result);
+
+const result = unflattenObject({
+  "name": "Bob",
+  "contact.email": "bob@example.com",
+  "contact.phone": "123-456-7890",
+  "preferences.newsletter": true,
+  "preferences.theme": "dark",
+});
+console.log(result);
