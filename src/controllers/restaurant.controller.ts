@@ -20,7 +20,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
         console.log('getSignup');
-        res.render('SIGNUP');
+        res.render('signup');
     } catch (err) {
         console.log("Error, getSignup: ", err);
         res.redirect('/admin');
